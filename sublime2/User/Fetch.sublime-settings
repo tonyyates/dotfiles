@@ -1,0 +1,11 @@
+{
+	"files":
+	{
+		"jquery": "http://code.jquery.com/jquery.min.js"
+	},
+	"packages":
+	{
+		"bootstrap": "https://github.com/twbs/bootstrap/releases/download/v3.0.3/bootstrap-3.0.3-dist.zip",
+		"html5_boilerplate": "https://github.com/h5bp/html5-boilerplate/zipball/master"
+	}
+}

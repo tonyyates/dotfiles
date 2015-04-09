@@ -1,0 +1,15 @@
+<snippet>
+	<content><![CDATA[
+/*
+// Author:		${1:Tony Yates} 
+// DateTime:	${2}
+// Description:	${3}
+// Copyright:	${4:V9 Solutions Ltd}
+*/
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>//hd</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

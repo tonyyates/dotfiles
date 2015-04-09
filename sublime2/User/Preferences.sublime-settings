@@ -1,8 +1,8 @@
 {
-	"color_scheme": "Packages/Colorsublime-Themes/Cobalt.tmTheme",
-	"font_size": 12.0,
+	"color_scheme": "Packages/Color Scheme - Default/Monokai Bright.tmTheme",
+	"font_size": 14.0,
 	"ignored_packages":
 	[
-		"Nodejs"
-	]
+	],
+	"save_on_focus_lost": true
 }
