@@ -1,5 +1,5 @@
 " Automatic reloading of .vimrc
- autocmd! bufwritepost .vimrc.symlink source %
+" autocmd! bufwritepost .vimrc.symlink source %
 
 
 " Better copy & paste
