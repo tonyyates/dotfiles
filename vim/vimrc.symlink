@@ -1,6 +1,16 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+
+call vundle#end()            " required
+filetype plugin indent on    " required
+
 " Automatic reloading of .vimrc
 " autocmd! bufwritepost .vimrc.symlink source %
-
+set laststatus=2
 
 " Better copy & paste
 " When you want to paste large blocks of code into vim, press F2 before you
@@ -67,7 +77,7 @@
 " Show whitespace
 " MUST be inserted BEFORE the colorscheme command
  autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
- au InsertLeave * match ExtraWhitespace /\s\+$/
+ " autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 
 
 " Color scheme
@@ -123,3 +133,22 @@
  set nobackup
  set nowritebackup
  set noswapfile
+
+ " Lets use the semi colon key as the colon, it does fuck all anyway
+ "
+ nnoremap ; :
+
+ " Unmap the arrow keys
+ no <down> <Nop>
+ no <up> <Nop>
+ no <left> <Nop>
+ no <right> <Nop>
+
+ " Unmap the arrow keys
+ino <down> <Nop>
+ino <up> <Nop>
+ino <left> <Nop>
+ino <right> <Nop>
+
+set relativenumber
+set undofile

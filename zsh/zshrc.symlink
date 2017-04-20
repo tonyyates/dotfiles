@@ -38,3 +38,9 @@ do
 done
 
 unset config_files
+
+export PATH="/Applications/Postgres.app/Contents/Versions/9.4/bin:$PATH"
+eval "$(rbenv init -)"
+#export WORKON_HOME=$HOME/.virtualenvs
+#export PROJECT_HOME=$HOME/Code
+#source /usr/local/bin/virtualenvwrapper.sh
