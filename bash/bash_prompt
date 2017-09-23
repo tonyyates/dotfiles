@@ -48,7 +48,7 @@ function parse_git_branch() {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
 }
 
-export PS1="${LBLUE}\u ${WHITE}in ${LBLUE}\w${WHITE}\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")${LBLUE}\$(parse_git_branch)${LWHITE} \$ ${RESET}"
+export PS1="${CYAN}\u${WHITE} at${CYAN} $HOSTNAME ${WHITE}in ${MAGENTA}\w${WHITE}\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")${MAGENTA}\$(parse_git_branch)${LWHITE} \$ ${RESET}"
 # export PS2="\[$ORANGE\]→ \[$RESET\]"
 
 #export PS1="$BLUE\W $CYAN\$(ruby_ver) $LCYAN\$(rails_ver) $GREEN\$(git_br)$WHITE\n\$ "
