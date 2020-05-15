@@ -1,0 +1,2 @@
+# add local bin folder
+export PATH="$HOME/bin:$PATH"
