@@ -15,6 +15,7 @@ symlinks:
 	@ln -sf $(DIR)/git/gitconfig ~/.gitconfig
 	@ln -sf $(DIR)/git/gitignore_global ~/.gitignore_global
 	@ln -nsf $(DIR)/bundle ~/.bundle
+	@ln -sf $(DIR)/vim/vim.symlink ~/.vim
 
 ensure_brew:
 	sh $(DIR)/scripts/ensure_homebrew.sh
