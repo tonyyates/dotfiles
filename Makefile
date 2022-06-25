@@ -4,18 +4,7 @@ NVM_DIR=$(HOME)/.nvm
 all: symlinks brew osx
 
 symlinks:
-	@ln -sf $(DIR)/zsh/aliases ~/.aliases
-	@ln -sf $(DIR)/zsh/zsh_profile ~/.zsh_profile
-	@ln -sf $(DIR)/zsh/zsh_prompt ~/.zsh_prompt
-	@ln -sf $(DIR)/zsh/exports ~/.exports
-	@ln -sf $(DIR)/zsh/functions ~/.functions
-	@ln -sf $(DIR)/zsh/path ~/.path
-	@ln -sf $(DIR)/zsh/git-completion.zsh ~/.git-completion.zsh
-	@ln -nsf $(DIR)/bin ~/bin
-	@ln -sf $(DIR)/git/gitconfig ~/.gitconfig
-	@ln -sf $(DIR)/git/gitignore_global ~/.gitignore_global
-	@ln -nsf $(DIR)/bundle ~/.bundle
-	@ln -sf $(DIR)/vim/vim.symlink ~/.vim
+	sh $(DIR)/scripts/symlinks
 
 ensure_brew:
 	sh $(DIR)/scripts/ensure_homebrew.sh
