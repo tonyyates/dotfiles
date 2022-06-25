@@ -19,6 +19,7 @@ brew 'sqlite'
 brew 'vim'
 brew 'wget'
 brew 'neovim'
+brew 'tmux'
 cask "1password"
 cask "intellij-idea-ce"
 cask 'alfred'
