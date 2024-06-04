@@ -1,3 +1,9 @@
+call plug#begin('~/.vim/plugged')
+     Plug 'preservim/nerdtree'
+call plug#end()
+
+
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -68,6 +74,8 @@ set laststatus=2
  vnoremap < <gv  " better indentation
  vnoremap > >gv  " better indentation
 
+" map jj to ESC
+inoremap jj <esc>
 
 " Show whitespace
 " MUST be inserted BEFORE the colorscheme command
