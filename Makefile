@@ -17,16 +17,16 @@ endif
 all: $(OSFLAG) symlinks
 
 linux:
-	@echo linux
+	@echo 'linux scripts to come'
 
 symlinks: 
-	sh $(DIR)/scripts/symlinks.sh
+	$(DIR)/scripts/symlinks
 
 macos: brew
-	sh $(DIR)/macos/osx.sh
+	$(DIR)/macos/osx.sh
 	
 ensure_brew:
-	sh $(DIR)/macos/ensure_homebrew.sh
+	$(DIR)/macos/ensure_homebrew.sh
 
 brew: ensure_brew
 	brew tap Homebrew/bundle
