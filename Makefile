@@ -1,7 +1,26 @@
 DIR=$(HOME)/dotfiles
 NVM_DIR=$(HOME)/.nvm
 
-all: symlinks brew osx
+OSFLAG 				:=
+ifeq ($(OS),Windows_NT)
+	OSFLAG += -D WIN32
+else
+	UNAME_S := $(shell uname -s)
+	ifeq ($(UNAME_S),Linux)
+		OSFLAG += linux 
+	endif
+	ifeq ($(UNAME_S),Darwin)
+		OSFLAG += macos
+	endif
+endif
+
+all: $(OSFLAG)
+
+linux:
+	@echo linux
+
+macos:
+	@echo osx
 
 symlinks:
 	sh $(DIR)/scripts/symlinks
@@ -22,12 +41,5 @@ nvm:
 	source $(NVM_DIR)/nvm.sh && nvm install 8
 	source $(NVM_DIR)/nvm.sh && nvm alias default 8
 
-node: nvm
-	ruby $(DIR)/scripts/npm_bundles.rb
-
-ruby:
-	[ -d ~/.rbenv/versions/$(LATEST_RUBY) ] || rbenv install $(LATEST_RUBY)
-	rbenv global $(LATEST_RUBY)
-
-osx:
+scripts:
 	sh $(DIR)/scripts/.osx
