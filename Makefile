@@ -19,10 +19,10 @@ all: $(OSFLAG) symlinks
 linux:
 	@echo linux
 
-symlinks: brew
-sh $(DIR)/scripts/symlinks.sh
+symlinks: 
+	sh $(DIR)/scripts/symlinks.sh
 
-macos:
+macos: brew
 	sh $(DIR)/macos/osx.sh
 	
 ensure_brew:
@@ -30,7 +30,7 @@ ensure_brew:
 
 brew: ensure_brew
 	brew tap Homebrew/bundle
-	brew bundle macos/Brewfile
+	brew bundle --file $(DIR)/macos/Brewfile
 
 nvm:
 	curl https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | NVM_DIR=$(NVM_DIR) PROFILE=$(HOME)/.zsh_profile sh
