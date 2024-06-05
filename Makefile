@@ -19,14 +19,14 @@ all: $(OSFLAG) symlinks
 linux:
 	@echo linux
 
+symlinks: brew
+sh $(DIR)/scripts/symlinks.sh
+
 macos:
 	sh $(DIR)/macos/osx.sh
 	
-symlinks: brew
-	sh $(DIR)/scripts/symlinks.sh
-
 ensure_brew:
-	sh $(DIR)/osx/ensure_homebrew.sh
+	sh $(DIR)/macos/ensure_homebrew.sh
 
 brew: ensure_brew
 	brew tap Homebrew/bundle
