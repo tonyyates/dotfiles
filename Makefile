@@ -14,23 +14,23 @@ else
 	endif
 endif
 
-all: $(OSFLAG)
+all: $(OSFLAG) symlinks
 
 linux:
 	@echo linux
 
 macos:
-	@echo osx
-
-symlinks:
-	sh $(DIR)/scripts/symlinks
+	sh $(DIR)/macos/osx.sh
+	
+symlinks: brew
+	sh $(DIR)/scripts/symlinks.sh
 
 ensure_brew:
-	sh $(DIR)/scripts/ensure_homebrew.sh
+	sh $(DIR)/osx/ensure_homebrew.sh
 
 brew: ensure_brew
 	brew tap Homebrew/bundle
-	brew bundle
+	brew bundle macos/Brewfile
 
 nvm:
 	curl https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | NVM_DIR=$(NVM_DIR) PROFILE=$(HOME)/.zsh_profile sh
@@ -40,6 +40,3 @@ nvm:
 	source $(NVM_DIR)/nvm.sh && nvm install 7
 	source $(NVM_DIR)/nvm.sh && nvm install 8
 	source $(NVM_DIR)/nvm.sh && nvm alias default 8
-
-scripts:
-	sh $(DIR)/scripts/.osx
