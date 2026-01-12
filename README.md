@@ -1,6 +1,6 @@
 # Tony's Dotfiles
 
-My dotfiles and config files for Mac OSX. 
+My dotfiles and config files for Mac OSX and Linux. These have been simplified due to the excellent job of lazyvim, lazygit and opencode
 
 Directories are itterated and files with .symlink are symlinked into the proper location, and have the `.` added. For example:
 

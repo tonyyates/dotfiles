@@ -1,17 +1,35 @@
 DIR=$(HOME)/dotfiles
 NVM_DIR=$(HOME)/.nvm
 
-all: symlinks brew osx
+OSFLAG 				:=
+ifeq ($(OS),Windows_NT)
+	OSFLAG += -D WIN32
+else
+	UNAME_S := $(shell uname -s)
+	ifeq ($(UNAME_S),Linux)
+		OSFLAG += linux 
+	endif
+	ifeq ($(UNAME_S),Darwin)
+		OSFLAG += macos
+	endif
+endif
 
-symlinks:
-	sh $(DIR)/scripts/symlinks
+all: $(OSFLAG) symlinks
 
+linux:
+	@echo 'linux scripts to come'
+
+symlinks: 
+	$(DIR)/scripts/symlinks
+
+macos: brew
+	$(DIR)/macos/osx.sh
+	
 ensure_brew:
-	sh $(DIR)/scripts/ensure_homebrew.sh
+	$(DIR)/macos/ensure_homebrew.sh
 
 brew: ensure_brew
-	brew tap Homebrew/bundle
-	brew bundle
+	brew bundle --file $(DIR)/macos/Brewfile
 
 nvm:
 	curl https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | NVM_DIR=$(NVM_DIR) PROFILE=$(HOME)/.zsh_profile sh
@@ -21,13 +39,3 @@ nvm:
 	source $(NVM_DIR)/nvm.sh && nvm install 7
 	source $(NVM_DIR)/nvm.sh && nvm install 8
 	source $(NVM_DIR)/nvm.sh && nvm alias default 8
-
-node: nvm
-	ruby $(DIR)/scripts/npm_bundles.rb
-
-ruby:
-	[ -d ~/.rbenv/versions/$(LATEST_RUBY) ] || rbenv install $(LATEST_RUBY)
-	rbenv global $(LATEST_RUBY)
-
-osx:
-	sh $(DIR)/scripts/.osx
